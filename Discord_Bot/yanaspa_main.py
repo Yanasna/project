@@ -1,10 +1,12 @@
 import discord 
-from discord.ext.commands import Bot 
 from Token_yanaspa import Token 
+from discord.ext import commands
 
-client = discord.Client()
+intents = discord.Intents.default()
 
-client = commands.Bot(command_prefix = './')
+intents.message_content = True
+
+client = commands.Bot(command_prefix = '!', intents=intents)
 
 @client.event
 async def on_ready():
@@ -16,11 +18,12 @@ async def on_ready():
 @client.event
 async def on_message(message) : 
     if message.content.startswith('테스트')  :
-        await message.channel.send("{} | {}. 안녕!".format(message.author, message.author.mention))
+        await message.channel.send("{} | {}. 안녕하냐!".format(message.author, message.author.mention))
     if message.content == '테스트' : 
-        await message.channel.send("{} | {}, 어서오세요!".format(message.author, message.author.mention))
+        await message.channel.send("{} | {}, 테스트 제발 그만좀.. ".format(message.author, message.author.mention))
+        await message.channel.send("{} | {} 야, 그만좀 불러다오.".format(message.author, message.author.mention))     
 
-    await message.author.send("{} | {} 유저님, 환영합니다.".format(message.author, message.author.mention))     
+    await client.process_commands(message)
 
 @client.command(aliases=['hi'])
 async def hello(ctx) : 
