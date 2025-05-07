@@ -1,10 +1,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FirstButtonClick : MonoBehaviour
+public class ManualButtonClick : MonoBehaviour
 {   
     public void OnClickButton(){
-        SceneManager.LoadScene("Manual");
+        SceneManager.LoadScene("Main");
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
