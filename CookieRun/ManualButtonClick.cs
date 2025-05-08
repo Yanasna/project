@@ -2,7 +2,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ManualButtonClick : MonoBehaviour
-{   
+{
+    public string s;
     public void OnClickButton(){
         SceneManager.LoadScene("Main");
     }
