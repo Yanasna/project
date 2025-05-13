@@ -26,9 +26,6 @@ public class Character_move : MonoBehaviour
     private float jumpBufferCount;
     public Animator animator;
     //애니메이터 컴포넌트 가져오기
-    public string[] Candy = new string[]{"Candy_0", "Candy_1", "Candy_2", "Candy_3", "Candy_4", "Candy_5", "Candy_6", "Candy_7", "Candy_8", "Candy_9", "Candy_10", "Candy_11"};
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public string[] Obstacle = new string[]{"Obstacle_0", "Obstacle_1", "Obstacle_2", "Obstacle_3", "Obstacle_4", "Obstacle_5", "Obstacle_6"};
 
     bool isSliding = false; //슬라이딩 애니메이션 만들기 위해 선언
 
@@ -59,24 +56,15 @@ public class Character_move : MonoBehaviour
         if(collision.gameObject.CompareTag("Obstacle"))
        {
         Heart -= 30;
-        for(int i = 0; i < Obstacle.Length; i++){
-            if(collision.gameObject.name == Obstacle[i]){
-                Destroy(collision.gameObject);
-            }
-        }
+        Destroy(collision.gameObject);
        }
        if(collision.gameObject.CompareTag("Item"))
        {
         Score += 1000;
-        for(int i = 0; i<Candy.Length; i++){
-            if(collision.gameObject.name == Candy[i]){
-                Destroy(collision.gameObject);
-            }
-        }
+        Destroy(collision.gameObject);
        }
        if(collision.gameObject.CompareTag("Death"))
        {
-            EndScore = Score;
             SceneManager.LoadScene("EndGame");
        }
     }
@@ -101,15 +89,6 @@ public class Character_move : MonoBehaviour
             animator.SetBool("isSliding", false);
             isSliding = false;
        }
-       if(Input.GetKeyDown(KeyCode.Space)){
-            jumpBufferCount = jumpBufferTime;
-       }
-         else{
-            jumpBufferCount -= Time.deltaTime;
-        }
-    }
-    public void FixedUpdate()
-    {
         if(Input.GetKeyDown(KeyCode.Space) && jumpcount < 2)
         {   
             rb.linearVelocity =  new Vector2(rb.linearVelocity.x, 0);
@@ -124,7 +103,7 @@ public class Character_move : MonoBehaviour
             }
             jumpcount++;
         }//점프구현
-       
+
     }
     public float maxHp = 150f;
 
