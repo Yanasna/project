@@ -5,7 +5,7 @@ import { BookGenre } from '../../database/BookGenre';
 import { Outlet } from 'react-router-dom';
 import { Link } from "react-router-dom"
 
-{/*Genre 내용*/}
+{/*장르 페이지*/}
 function Genre() {
     return (
             <div>

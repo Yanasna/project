@@ -1,6 +1,8 @@
 import React from "react";
 import './Index.css'
 
+
+{/*Index페이지 (사실상 메인페이지 역할이다.)*/}
 export default function Index(){
     return(
         <div>
