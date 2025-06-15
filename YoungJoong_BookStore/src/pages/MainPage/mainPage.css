@@ -1,0 +1,85 @@
+/*위의 패널 ?바*/
+.navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 16px 32px;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+}
+
+.navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #005bac;
+}
+
+.navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+}
+
+.navbar ul li a{
+      cursor: pointer;
+      font-weight: 500;
+      color: #333;
+}
+
+.navbar ul li a:hover {
+      color: #005bac;
+}
+
+.menu {
+      font-size: 14px;
+      color: #666;
+      margin-left: 20px;
+}
+
+/* footer */
+.footer {
+  background-color: #000000;
+  color: #ccc;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.footer-info, .footer-copy {
+  flex: 1 1 300px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-sub {
+  text-align: right;
+  font-size: 13px;
+  color: #666;
+}
+
+.scroll-top-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+}
+
+.scroll-top-btn:hover {
+  background: #eee;
+}
+

@@ -1,0 +1,23 @@
+.wrapper {
+  padding: 40px;
+  font-family: 'Noto Serif KR', serif;
+  background: white;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 400;
+  color: #111;
+  line-height: 1.4;
+}
+
+.bold {
+   font-weight: bold;
+   color : red;
+}
+
+.fade {
+  font-size: 30px;
+  color: gray;
+  margin-top: 8px;
+}

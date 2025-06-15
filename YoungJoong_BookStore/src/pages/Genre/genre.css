@@ -1,0 +1,34 @@
+
+.title{
+  font-size: 50px;
+  text-align: center;
+  font-size: 60px;
+  background: linear-gradient(to right top, #861657, #ffa69e);
+  color: transparent;
+   background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.product {
+    display: flex;
+    justify-content: center;
+    margin-top: 160px;
+    padding-bottom: 156px;
+}
+.p-font{
+  font-size: 40;
+  color : green;
+}
+.product-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px;
+    width: 1260px;
+    margin-right: 60px;
+}
+
+.body {
+      margin: 0;
+      font-family: 'Pretendard', sans-serif;
+}
+
