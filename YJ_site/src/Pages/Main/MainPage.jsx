@@ -8,6 +8,9 @@ import './MainPage.css'
 
 import Index from '../Index/Index';
 import Taza from '../Taza/Taza';
+import Game from '../Game/Game';
+
+import CookieRun from '../Game/Games/CookieRun';
 
 export default function MainPage() {
   return (
@@ -24,7 +27,10 @@ export default function MainPage() {
                         <Route path='/' element={<Index />} />  {/*index페이지 연결*/}
                        
                         <Route path='/Taza' element={<Taza />} /> {/*타자연습 페이지 연결*/}
-                    
+
+                        <Route path='Games' element={<Game />} > {/*게임 페이지 연결*/}
+                            <Route path='CookieRun' element ={<CookieRun />}/>
+                        </Route>
                     </Routes>
                 </main>
             <footer className="footer">
