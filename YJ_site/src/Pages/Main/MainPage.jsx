@@ -8,7 +8,6 @@ import './MainPage.css'
 
 import Index from '../Index/Index';
 import Taza from '../Taza/Taza';
-import About from '../About/About';
 
 export default function MainPage() {
   return (
@@ -18,7 +17,6 @@ export default function MainPage() {
                     <ul className='menu'>
                         <li><Link to="/Taza">타자연습</Link></li> {/*장르 글자를 누르면 장르페이지(Genre) 이동*/}
                         <li><Link to="/Games">Games</Link></li> {/*신간도서 글자를 누르면 신간 도서 페이지(NewBook) 이동*/}
-                        <li><Link to="/About">About</Link></li> {/*About_YJ 글자를 누르면 About_YJ페이지 이동*/}
                     </ul>
             </header>
                 <main>
@@ -27,12 +25,11 @@ export default function MainPage() {
                        
                         <Route path='/Taza' element={<Taza />} /> {/*타자연습 페이지 연결*/}
                     
-                         <Route path='/About' element={<About />} /> {/*About페이지 연결*/}
                     </Routes>
                 </main>
             <footer className="footer">
                 <div className="footer-info">
-                    <p>대학생이 만든 사이트</p>
+                    <p>Made in 김영중</p>
                 </div>
                 <div className='footer-sub'>
                     <p>YJ</p>
