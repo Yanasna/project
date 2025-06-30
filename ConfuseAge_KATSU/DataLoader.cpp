@@ -8,11 +8,6 @@
 using json = nlohmann::json;
 using namespace std;
 
-void DataLoader() {
-
-   
-}
-
 void agriculture() {
     try {
         cout << " DataLoader 시작" << endl;
@@ -27,8 +22,14 @@ void agriculture() {
         json data = json::parse(buffer.str());  // 문자열을 파싱
 
         cout << "개발할 성을 선택해 주세요!" << endl;
-        cout << "성 이름 : " << data["castle_name"] << endl;
-        cout << "농업 최대치 : " << data["Max_agriculture"] << "  ||  " << "현재 농업 진행 : " << data["early_agriculture"] << endl;
+        int size = sizeof(data["castle"]) / sizeof(data["castle[0]"]);
+
+        for (int i = 0; i < size; i++) {
+            cout << "성 이름 : " << data["castle_name"] << endl;
+            cout << "농업 최대치 : " << data["Max_agriculture"] << "  ||  " << "현재 농업 진행 : " << data["early_agriculture"] << endl;
+        }
+        
+        
         Sleep(3000);
     }
     catch (const json::parse_error& e) {

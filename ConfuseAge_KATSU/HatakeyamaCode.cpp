@@ -5,11 +5,10 @@
 
 using namespace std;
 
-void DataLoader();
 void agriculture();
 
 
-void Hatakeyama(string playername) {
+void Hatakeyama() {
 	system("cls");
 	string Nline = "------------------------------------------------------------------------------------------------------------------";
 	cout << ".................................................................................................................." << endl;
@@ -33,13 +32,18 @@ void Hatakeyama(string playername) {
 	cout << Nline << endl;
 	
 	int position = 0; 
+	cout << "하타케야마 가문" << endl;
+	cout << "왕 - 하타케야마 하케카츠" << endl;
+	cout << "시간 : " << endl;
 	cout << "======= 게임 메뉴 =======" << endl;
 	cout << "[농업]" << (position == 0 ? "< " : "  ") << "    ";
 	cout << "[상업]" << (position == 1 ? "< " : "  ") << "    ";
 	cout << "[병영]" << (position == 2 ? "<" : " ") << "    ";
 	cout << "[세력정보]" << (position == 3 ? "<" : " ") << "    ";
 	cout << "[출전!]" << (position == 4 ? "<" : " ") << "    ";
-
+	
+	string menu[] = { "[농업]","[상업]", "[병영]", "[세력정보]", "[출전]", "[저장]"};
+	int size = sizeof(menu) / sizeof(menu[0]);
 
 	bool running = true;
 
@@ -57,31 +61,39 @@ void Hatakeyama(string playername) {
 			}
 		}
 		else if (key == 13) { // Enter 키
-			if (position == 0) {
-				system("cls");
-				cout << "우리는 농업에 투자한다!" << endl;
-				Sleep(1000);
-				agriculture();
-			}
-			else if (position == 1) {
-				system("cls");
-				cout << "우리는 상업에 투자한다!" << endl;
-				Sleep(1000);
-			}
-			else if (position == 2) {
-				system("cls");
-				cout << "우리는 병영에 투자한다!" << endl;
-				Sleep(1000);
-			}
-			else if (position == 3) {
-				system("cls");
-				cout << "세력정보를 관람한다!" << endl;
-				Sleep(1000);
-			}
-			else if (position == 4) {
-				system("cls");
-				cout << "출전한다!!!" << endl;
-				Sleep(1000);
+			switch (position) {
+				
+				case 0 :
+					system("cls");
+					cout << "우리는 농업에 투자한다!" << endl;
+					Sleep(1000);
+					agriculture();
+					break;
+				case 1 : 
+					system("cls");
+					cout << "우리는 상업에 투자한다!" << endl;
+					Sleep(1000);
+					break;
+				case 2 : 
+					system("cls");
+					cout << "우리는 병영에 투자한다!" << endl;
+					Sleep(1000);
+					break;
+				case 3:
+					system("cls");
+					cout << "세력정보를 관람한다!" << endl;
+					Sleep(1000);
+					break;
+				case 4:
+					system("cls");
+					cout << "출전한다!!!" << endl;
+					Sleep(1000);
+					break;
+				case 5:
+					system("cls");
+					cout << "저장한다!" << endl;
+					Sleep(1000);
+					break;
 			}
 		}
 		system("cls");
