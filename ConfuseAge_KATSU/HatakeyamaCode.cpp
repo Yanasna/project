@@ -5,6 +5,10 @@
 
 using namespace std;
 
+void DataLoader();
+void agriculture();
+
+
 void Hatakeyama(string playername) {
 	system("cls");
 	string Nline = "------------------------------------------------------------------------------------------------------------------";
@@ -28,13 +32,15 @@ void Hatakeyama(string playername) {
 	cout << Nline << endl;
 	cout << Nline << endl;
 	
-	int position = 0; // 0이면 [시작], 1이면 [종료]에 커서 있음
+	int position = 0; 
 	cout << "======= 게임 메뉴 =======" << endl;
 	cout << "[농업]" << (position == 0 ? "< " : "  ") << "    ";
 	cout << "[상업]" << (position == 1 ? "< " : "  ") << "    ";
 	cout << "[병영]" << (position == 2 ? "<" : " ") << "    ";
+	cout << "[세력정보]" << (position == 3 ? "<" : " ") << "    ";
+	cout << "[출전!]" << (position == 4 ? "<" : " ") << "    ";
 
-	
+
 	bool running = true;
 
 	while (running) {
@@ -55,7 +61,7 @@ void Hatakeyama(string playername) {
 				system("cls");
 				cout << "우리는 농업에 투자한다!" << endl;
 				Sleep(1000);
-				void DataLoader();
+				agriculture();
 			}
 			else if (position == 1) {
 				system("cls");
