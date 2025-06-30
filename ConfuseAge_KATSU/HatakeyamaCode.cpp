@@ -22,47 +22,71 @@ void Hatakeyama(string playername) {
 	cout << "{{하타케야마 하루타카}}가 전사했습니다." << endl;
 	cout << "{{와타나베 치카츠에}}가 전사했습니다." << endl;
 	cout << "{{히라카미 요케츠}}가 전사했습니다." << endl;
+	cout << "[와타나베]가문이 독립했습니다!" << endl;
 	cout << "[하타케야마 하케카츠] : \" 아버지,,, 제가 꼭 복수를 성공하겠습니다... \" " << endl;
 	cout << "{{하타케야마 하케카츠}}가 하타케야마의 왕이 되었다." << endl;
 	cout << Nline << endl;
 	cout << Nline << endl;
-
-
+	
 	int position = 0; // 0이면 [시작], 1이면 [종료]에 커서 있음
-	bool running = true;
-
-	
-	
-	
-	while(running) {
-	int key = _getch(); // 키 입력 대기
-
 	cout << "======= 게임 메뉴 =======" << endl;
 	cout << "[농업]" << (position == 0 ? "< " : "  ") << "    ";
 	cout << "[상업]" << (position == 1 ? "< " : "  ") << "    ";
-	//cout << "[병영]" << (position == 2 ?  " < " : " ") << endl;
-	if (key == 224) { // 방향키는 2단계로 입력됨
-		int arrow = _getch();
-		if (arrow == 75) { // ←
-			if (position > 0) position--;
-		}
-		else if (arrow == 77) { // →
-			if (position < 1) position++;
-		}
-	}
-	else if (key == 13) { // Enter 키
-		if (position == 0) {
-			system("cls");
-			cout << "게임을 시작합니다...!" << endl;
-			Sleep(1000); // 1초 대기
-			running = false;
-		}
-		else if (position == 1) {
-			system("cls");
-			cout << "게임을 종료합니다. 안녕!" << endl;
-			Sleep(1000);
-			running = false;
-				}
+	cout << "[병영]" << (position == 2 ? "<" : " ") << "    ";
+
+	
+	bool running = true;
+
+	while (running) {
+		int key = _getch(); // 키 입력 대기
+		
+		
+		if (key == 224) { // 방향키는 2단계로 입력됨
+			int arrow = _getch();
+			if (arrow == 75) { // ←
+				if (position > 0) position--;
+			}
+			else if (arrow == 77) { // →
+				if (position < 4) position++;
 			}
 		}
+		else if (key == 13) { // Enter 키
+			if (position == 0) {
+				system("cls");
+				cout << "우리는 농업에 투자한다!" << endl;
+				Sleep(1000);
+				void DataLoader();
+			}
+			else if (position == 1) {
+				system("cls");
+				cout << "우리는 상업에 투자한다!" << endl;
+				Sleep(1000);
+			}
+			else if (position == 2) {
+				system("cls");
+				cout << "우리는 병영에 투자한다!" << endl;
+				Sleep(1000);
+			}
+			else if (position == 3) {
+				system("cls");
+				cout << "세력정보를 관람한다!" << endl;
+				Sleep(1000);
+			}
+			else if (position == 4) {
+				system("cls");
+				cout << "출전한다!!!" << endl;
+				Sleep(1000);
+			}
+		}
+		system("cls");
+		cout << "하타케야마 가문" << endl;
+		cout << "왕 - 하타케야마 하케카츠" << endl;
+		cout << "시간 : " << endl;
+		cout << "======= 게임 메뉴 =======" << endl;
+		cout << "[농업]" << (position == 0 ? "< " : "  ")   << "    ";
+		cout << "[상업]" << (position == 1 ? "< " : "  ")   << "    ";
+		cout << "[병영]" << (position == 2 ? "<" : " ")     << "    ";
+		cout << "[세력정보]" << (position == 3 ? "<" : " ") << "    ";
+		cout << "[출전!]" << (position == 4 ? "<" : " ") << "    ";
+	}
 }
