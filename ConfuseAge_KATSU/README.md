@@ -12,5 +12,5 @@
 
 
 <li>7/1</li>
-<p>Json파일 2개를 연동하여 해당 가문의 농업 정보를 받아오도록 구성</p>
+<p>Json파일 2개를 연동하여 해당 가문성(HouseInfo.json)의 농업 정보(EarlyCastleData.json)를 받아오도록 구성</p>
 <p> </p>
