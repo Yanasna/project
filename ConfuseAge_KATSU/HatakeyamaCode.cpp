@@ -31,21 +31,20 @@ void Hatakeyama() {
 	cout << Nline << endl;
 	cout << Nline << endl;
 	
-	int position = 0; 
-	cout << "하타케야마 가문" << endl;
-	cout << "왕 - 하타케야마 하케카츠" << endl;
-	cout << "시간 : " << endl;
-	cout << "======= 게임 메뉴 =======" << endl;
-	cout << "[농업]" << (position == 0 ? "< " : "  ") << "    ";
-	cout << "[상업]" << (position == 1 ? "< " : "  ") << "    ";
-	cout << "[병영]" << (position == 2 ? "<" : " ") << "    ";
-	cout << "[세력정보]" << (position == 3 ? "<" : " ") << "    ";
-	cout << "[출전!]" << (position == 4 ? "<" : " ") << "    ";
-	
 	string menu[] = { "[농업]","[상업]", "[병영]", "[세력정보]", "[출전]", "[저장]"};
 	int size = sizeof(menu) / sizeof(menu[0]);
 
 	bool running = true;
+	int position = 0;
+
+	cout << "하타케야마 가문" << endl;
+	cout << "왕 - 하타케야마 하케카츠" << endl;
+	cout << "시간 : " << endl;
+	cout << "======= 게임 메뉴 =======" << endl;
+	for (int i = 0; i < size; i++) {
+		cout << menu[i] << (position == i ? "<" : " ") << "    ";
+	}
+
 
 	while (running) {
 		int key = _getch(); // 키 입력 대기
@@ -57,7 +56,7 @@ void Hatakeyama() {
 				if (position > 0) position--;
 			}
 			else if (arrow == 77) { // →
-				if (position < 4) position++;
+				if (position < 5) position++;
 			}
 		}
 		else if (key == 13) { // Enter 키
@@ -100,11 +99,10 @@ void Hatakeyama() {
 		cout << "하타케야마 가문" << endl;
 		cout << "왕 - 하타케야마 하케카츠" << endl;
 		cout << "시간 : " << endl;
+		cout << "자금 : " << endl;
 		cout << "======= 게임 메뉴 =======" << endl;
-		cout << "[농업]" << (position == 0 ? "< " : "  ")   << "    ";
-		cout << "[상업]" << (position == 1 ? "< " : "  ")   << "    ";
-		cout << "[병영]" << (position == 2 ? "<" : " ")     << "    ";
-		cout << "[세력정보]" << (position == 3 ? "<" : " ") << "    ";
-		cout << "[출전!]" << (position == 4 ? "<" : " ") << "    ";
+		for (int i = 0; i < size; i++) {
+			cout << menu[i] << (position == i ? "<" : " ") << "    ";
+		}
 	}
 }
