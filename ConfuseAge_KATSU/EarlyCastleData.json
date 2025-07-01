@@ -1,0 +1,29 @@
+[
+    {
+    "id" : 1,
+    "castle_name" : "Karouji",
+    "Population" : 44000,
+    "Max_agriculture": 40000,
+    "Early_agriculture": 10000,
+    "Max_commerce" : 1000,
+    "Early_commerce" : 500
+    },
+    {
+    "id" : 2,
+    "castle_name" : "Karouka",
+    "Population" : 50000,
+    "Max_agriculture": 60000,
+    "Early_agriculture": 7000,
+    "Max_commerce" : 2000,
+    "Early_commerce" : 500
+    },
+    {
+    "id" : 3,
+    "castle_name" : "Karobo",
+    "Population" : 21000,
+    "Max_agriculture": 15000,
+    "Early_agriculture": 8000,
+    "Max_commerce" : 500,
+    "Early_commerce" : 200
+    }
+]
