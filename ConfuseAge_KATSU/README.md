@@ -1,6 +1,6 @@
 ## ConfuseAge_KATSU
 
-<p>c++코드로 작성</p>
+<p>c++코드로 작성 / nlohmann - json.hpp 사용</p>
 
 <li>카츠_혼란시대_ 업데이트 기록 6/29</li>
 <hr />
