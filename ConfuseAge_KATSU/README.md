@@ -13,4 +13,5 @@
 
 <li>7/1</li>
 <p>Json파일 2개를 연동하여 해당 가문_ 성의(HouseInfo.json) 농업 정보(EarlyCastleData.json)를 받아오도록 구성</p>
-<p> </p>
+<p> 수입설정 Income()</p>
+<p>시간설정 Time()  </p>
