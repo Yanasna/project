@@ -39,11 +39,23 @@ void agriculture() {;
         buffer2 << file.rdbuf();  // 전체 파일을 문자열로 읽기
         json data = json::parse(buffer2.str());  // EarlyCastleData.json 문자열을 파싱
 
+        //장군 정보 불러오기
+        ifstream GeneralFile("../../ConfuseAge_KATSU/GeneralInfo.json");
+        if (!GeneralFile.is_open()) {
+            cerr << "파일 열기 실패!" << endl;
+            return;
+        }
+        stringstream buffer3;
+        buffer3 << GeneralFile.rdbuf();  // 전체 파일을 문자열로 읽기
+        json GeneralData = json::parse(buffer3.str());  // 문자열을 파싱
+
+
         cout << "개발할 성을 선택해 주세요!" << endl;
         int position = 0;
         
         bool running = true;
         int count = 0;
+        
         for (const auto& entry : HouseData) {
             if (entry["House"] == "Hatakeyama") {
                 count = entry["Castle_List"].size() -1;
@@ -52,7 +64,7 @@ void agriculture() {;
                         if (castle == castleEntry["castle_name"]) {
                             cout << "성 이름 : " << castleEntry["castle_name"] << " Castle  " << "  |  ";
                             cout << "농업 최대치 : " << castleEntry["Max_agriculture"] << "  ||  현재 농업 진행 : " << castleEntry["Early_agriculture"]
-                                << (position == count ? "<- " : "  ") << "    " << endl;
+                                << (position == count ? "<-" : "  ") << "    " << endl;
                         }
                     }
                 }
@@ -77,6 +89,25 @@ void agriculture() {;
                 json Element = data[position];
                 string Castle_Name = Element["castlename"];
                 cout << Castle_Name << "성의 농업을 담당할 사람을 임명해주세요!";
+
+                int general_count = 0;
+                int general_position = 0;
+                for (const auto& entry : HouseData) {
+                    if (entry["House"] == "Hatakeyama") {
+                        general_count = entry["General_List"].size() - 1;
+                        for (const auto& general : entry["General_List"]) {
+                            for (const auto& GeneralEntry : data) {
+                                if (general == GeneralEntry["General_Name"]) {
+                                    cout << "장군 이름 : " << GeneralEntry["General_Name"] << "  |  ";
+                                    cout << "무력 : " << GeneralEntry["Attack"] << "  ||  지략 : " << GeneralEntry["resourceful"]
+                                        << (general_position == general_count ? "<-" : "  ") << "    " << endl;
+                                }
+                            }
+                        }
+                    }
+                }
+
+
             }
             system("cls");
             
