@@ -1,0 +1,27 @@
+[
+	{
+		"General_Name" : "Hatakeyama_Haketatsu", 
+		"Attack" : 60,
+		"resourceful" : 74
+	},
+	{
+		"General_Name" : "Hatakeyama_Hatsutake", 
+		"Attack" : 86,
+		"resourceful" : 37
+	},
+	{
+		"General_Name" : "Hatakeyama_Hatamitsu",
+		"Attack" : 40,
+		"resourceful" : 51
+	},
+	{
+		"General_Name" : "Takatsue_chikayosi",
+		"Attack" : 55,
+		"resourceful" : 53
+	},
+	{
+		"General_Name" : "Ryutaki_naotaka",
+		"Attack" : 31,
+		"resourceful" : 46
+	}
+]
