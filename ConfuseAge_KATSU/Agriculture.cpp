@@ -30,14 +30,14 @@ try {
 
 
     //성 데이터 불러오기
-    ifstream file("../../ConfuseAge_KATSU/CastleData.json");
-    if (!file.is_open()) {
+    ifstream CastleFile("../../ConfuseAge_KATSU/CastleData.json");
+    if (!CastleFile.is_open()) {
         cerr << "파일 열기 실패!" << endl;
         return;
     }
 
     stringstream buffer2;
-    buffer2 << file.rdbuf();  // 전체 파일을 문자열로 읽기
+    buffer2 << CastleFile.rdbuf();  // 전체 파일을 문자열로 읽기
     json CastleData = json::parse(buffer2.str());  // CastleData.json 문자열을 파싱
 
     //장군 정보 불러오기
@@ -136,17 +136,27 @@ try {
                     if (agriculture_num == 'Y' || agriculture_num == 'y') {
                         money -= 1000;
                         cout << "농업 - 개발중" << endl;
+
                         for (auto& castle : CastleData) {
                             if (castle["castle_name"] == Castle_Name) {
-                                castle["Early_agriculture"] += 10; // ✅ 여기서 수정!
+                                if (castle["Early_agriculture"] < castle["Max_agriculture"]) {
+                                    int add_agriculture = castle["Early_agriculture"].get<int>() + 100000;
+                                    if (add_agriculture >= castle["Max_agriculture"]) {
+                                        add_agriculture = castle["Max_agriculture"];
+                                    }
+                                    castle["Early_agriculture"] = add_agriculture;
+                                }
                             }
                         }
-                        ofstream fileOut("EarlyCastleData.json");
+                        ofstream fileOut("../../ConfuseAge_KATSU/CastleData.json");
                         if (!fileOut.is_open()) {
                             cerr << "파일 저장 실패!" << endl;
                         }
                         fileOut << CastleData.dump(4); //
                         fileOut.close();
+                        HouseFile.close();
+                        GeneralFile.close();
+                        CastleFile.close();
 
                         for (int i = 0; i < 5; i++)
                         {
@@ -236,14 +246,14 @@ void Income() {
 
 
         //성 데이터 불러오기
-        ifstream file("../../ConfuseAge_KATSU/CastleData.json");
-        if (!file.is_open()) {
+        ifstream CastleFile("../../ConfuseAge_KATSU/CastleData.json");
+        if (!CastleFile.is_open()) {
             cerr << "파일 열기 실패!" << endl;
             return;
         }
 
         stringstream buffer2;
-        buffer2 << file.rdbuf();  // 전체 파일을 문자열로 읽기
+        buffer2 << CastleFile.rdbuf();  // 전체 파일을 문자열로 읽기
         json CastleData = json::parse(buffer2.str());  // 문자열을 파싱
 
 
