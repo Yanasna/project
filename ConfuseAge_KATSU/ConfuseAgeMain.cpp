@@ -3,14 +3,17 @@
 #include<string>
 #include <cstdlib>
 #include <conio.h>
+#include <sstream>
 
 using namespace std;
 
 
 void gamefirst(bool& firstTime, string& p_name);
 void Hatakeyama();
-
+void ResetCastle();
 string nameSet();
+
+static bool first_setting = true;
 
 void gamefirst(bool& firstTime, string& p_name) {
 	p_name = nameSet();
@@ -101,6 +104,9 @@ int main(void) {
 	cout << "게임스타트 !!" << endl;
 
 	gamefirst(firstTime, p_name); //게임 처음플레이할 때 이름입력
-
+	if (first_setting == true) {
+		ResetCastle();
+		first_setting = false;
+	}
 	chooseCountry();
 }
