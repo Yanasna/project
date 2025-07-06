@@ -23,3 +23,7 @@
 <li> 7/3 </li>
 <p>agriculture.cpp 업데이트 - 농업-담당자 선택지 추가  </p>
 <p>해당 담당자의 지략에 따라 농업 증가 </p>
+
+<li> 7/6 </li>
+<p>reset 추가 </p>
+<p>처음시작할 때 castleData 초기화 </p>
