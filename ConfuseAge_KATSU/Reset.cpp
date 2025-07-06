@@ -4,13 +4,18 @@
 #include <windows.h> // Sleep()
 #include <fstream>
 #include <nlohmann/json.hpp> // nlohmann::json 라이브러리
+#include <sstream>
 
 using namespace std;
 using json = nlohmann::json;
 
-void ResetData() {
+
+
+//성의 기본 값 세팅, 처음에 시작할 시 리셋
+void ResetCastle() {
+    json CastleData;
     //가문의 성 정보 불러오기
-    ifstream HouseFile("../../ConfuseAge_KATSU/HouseInfo.json");
+    ifstream HouseFile("../../Project_ConfuseAge/HouseInfo.json");
     if (!HouseFile.is_open()) {
         cerr << "파일 열기 실패!" << endl;
         return;
@@ -21,7 +26,7 @@ void ResetData() {
 
 
     //성 데이터 불러오기
-    ifstream CastleFile("../../ConfuseAge_KATSU/CastleData.json");
+    ifstream CastleFile("../../Project_ConfuseAge/CastleData.json");
     if (!CastleFile.is_open()) {
         cerr << "파일 열기 실패!" << endl;
         return;
@@ -29,10 +34,10 @@ void ResetData() {
 
     stringstream buffer2;
     buffer2 << CastleFile.rdbuf();  // 전체 파일을 문자열로 읽기
-    json CastleData = json::parse(buffer2.str());  // CastleData.json 문자열을 파싱
+    CastleData = json::parse(buffer2.str());  // CastleData.json 문자열을 파싱
 
     //장군 정보 불러오기
-    ifstream GeneralFile("../../ConfuseAge_KATSU/GeneralInfo.json");
+    ifstream GeneralFile("../../Project_ConfuseAge/GeneralInfo.json");
     if (!GeneralFile.is_open()) {
         cerr << "파일 열기 실패!" << endl;
         return;
@@ -40,11 +45,17 @@ void ResetData() {
     stringstream buffer3;
     buffer3 << GeneralFile.rdbuf();  // 전체 파일을 문자열로 읽기
     json GeneralData = json::parse(buffer3.str());  // 문자열을 파싱
-    
 
+    //성들의 농업, 상업, 병영 정보 리셋
+    for (auto& castle : CastleData) {
+        if (castle["castle_name"] == "Karouji") {
+            castle["Early_agriculture"] = 10000;
+            castle["Early_commerce"] = 10000;
+            castle["army"] =  4000;
+            }
+        }
 
-
-    ofstream fileOut("../../ConfuseAge_KATSU/CastleData.json");
+    ofstream fileOut("../../Project_ConfuseAge/CastleData.json");
     if (!fileOut.is_open()) {
         cerr << "파일 저장 실패!" << endl;
     }
