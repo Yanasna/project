@@ -2,10 +2,7 @@
 
 <p>c++코드로 작성 / nlohmann - json.hpp 사용</p>
 
-<li>카츠_혼란시대_ 업데이트 기록 6/29</li>
-<hr />
-<p>하타케야마 - 시나리오 추가/다른 cpp파일로 분리</p>
-<p>conio.h를 통한 _getch / 키보드 입력추가 </p>
+<li>카츠_혼란시대_ 업데이트 기록</li>
 
 <li>6/30 </li>
 <p>성의 농업 정보를 불러오는 Json파일 연동_ / nlohmann - json.hpp 헤더 사용 </p>
@@ -27,3 +24,7 @@
 <li> 7/6 </li>
 <p>reset 추가 </p>
 <p>처음시작할 때 castleData 초기화 </p>
+
+<li>7/9 </li>
+<p>agriculture에commerce() 함수 추가 </p>
+<p>상업 선택지 추가 </p>
