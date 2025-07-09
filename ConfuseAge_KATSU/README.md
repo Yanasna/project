@@ -26,5 +26,5 @@
 <p>처음시작할 때 castleData 초기화 </p>
 
 <li>7/9 </li>
-<p>agriculture에commerce() 함수 추가 </p>
-<p>상업 선택지 추가 </p>
+<p>agriculture에commerce() 함수 추가 / 상업 선택지 추가</p>
+<p>reset.cpp에 다른 성들도 초기화하도록 초기값 설정 </p>
