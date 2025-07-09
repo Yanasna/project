@@ -50,9 +50,19 @@ void ResetCastle() {
     for (auto& castle : CastleData) {
         if (castle["castle_name"] == "Karouji") {
             castle["Early_agriculture"] = 10000;
-            castle["Early_commerce"] = 10000;
+            castle["Early_commerce"] = 1800;
             castle["army"] =  4000;
             }
+        if (castle["castle_name"] == "Karouka") {
+            castle["Early_agriculture"] = 7000;
+            castle["Early_commerce"] = 500;
+            castle["army"] = 6000;
+        }
+        if (castle["castle_name"] == "Karobo") {
+            castle["Early_agriculture"] = 8000;
+            castle["Early_commerce"] = 200;
+            castle["army"] = 2000;
+        }
         }
 
     ofstream fileOut("../../Project_ConfuseAge/CastleData.json");
