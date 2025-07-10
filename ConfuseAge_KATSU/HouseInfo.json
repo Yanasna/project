@@ -1,14 +1,20 @@
 [
-  {
-    "id": 1,
-    "House": "Hatakeyama",
-    "Castle_List": [ "Karouji" ],
-    "General_List": [ "Hatakeyama_Haketatsu", "Hatakeyama_Hatsutake", "Hatakeyama_Hatamitsu", "Takatsue_chikayosi", "Ryutaki_naotaka" ]
-  },
-  {
-    "id": 2,
-    "House": "Ogigayatsu",
-    "Castle_List": [ "Karouka", "Karobo" ],
-    "General_List": [ "Ogigayatsu_Katsumasa", "Ogigayatsu_Katsumune", "takamune_motochika" ]
-  }
+	{
+		"id" : 1,
+		"House" : "Hatakeyama",
+		"Castle_List" : ["Karouji"],
+		"General_List" : ["Hatakeyama_Haketatsu", "Hatakeyama_Hatsutake", "Hatakeyama_Hatamitsu", "Ryutaki_Naotaka", "Takatsue_Chikayosi"]
+	},
+	{
+		"id" : 2,
+		"House" : "Ogigayatsu",
+		"Castle_List" : ["Karouka", "Karobo"],
+		"General_List" : ["Ogigayatsu_Katsumasa", "Ogigayatsu_Katsumune", "takamune_Motochika", "Hatakeyama_Michinobu", "Kukotaka_Michikata"]
+	},
+	{
+		"id" : 3,
+		"House" : "Watanabe",
+		"Castle_List" : ["Kukotaka"],
+		"General_List" : ["Watanabe_Watachika", "Watanabe_Yositomo", "takamune_Yosinari", "Kukotaka_Sizuka"]
+	}
 ]

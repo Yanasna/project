@@ -1,32 +1,41 @@
 [
-    {
-        "Early_agriculture": 12550,
-        "Early_commerce": 10000,
-        "Max_agriculture": 40000,
-        "Max_commerce": 1000,
-        "Population": 44000,
-        "army": 4000,
+    {   "id": 1,
         "castle_name": "Karouji",
-        "id": 1
+        "Early_agriculture": 10000,
+        "Early_commerce": 1000,
+        "Max_agriculture": 40000,
+        "Max_commerce": 1800,
+        "Population": 44000,
+        "army": 4000   
     },
     {
+        "id": 2,
+        "castle_name": "Karouka",
         "Early_agriculture": 7000,
         "Early_commerce": 500,
         "Max_agriculture": 60000,
         "Max_commerce": 2000,
         "Population": 50000,
-        "army": 6000,
-        "castle_name": "Karouka",
-        "id": 2
+        "army": 6000
     },
     {
+        "id": 3,
+        "castle_name": "Karobo",
         "Early_agriculture": 8000,
         "Early_commerce": 200,
         "Max_agriculture": 15000,
         "Max_commerce": 500,
         "Population": 21000,
-        "army": 2000,
-        "castle_name": "Karobo",
-        "id": 3
+        "army": 2000
+    },
+    {   
+        "id": 4,
+        "castle_name": "Kukotaka",
+        "Early_agriculture": 8000,
+        "Early_commerce": 200,
+        "Max_agriculture": 15000,
+        "Max_commerce": 500,
+        "Population": 21000,
+        "army": 2000
     }
 ]
