@@ -19,7 +19,7 @@ static int add_army;
 
 void Turn();
 void Hatakeyama();
-
+void GameOver_Nomoney();
 
 void agriculture() {
     try {
@@ -148,57 +148,64 @@ void agriculture() {
                         
 
                         if (agriculture_num == 'Y' || agriculture_num == 'y') {
-                            money -= 1000;
-                            cout << "농업 - 개발중" << endl;
+                            if ((money - 1000) < 0) {
+                                cout << "돈이 모자랍니다.." << endl;
+                                Hatakeyama();
+                            }
+                            else if ((money - 1000) > 0) {
+                                money -= 1000;
+                                cout << "농업 - 개발중" << endl;
 
-                            for (auto& castle : CastleData) {
-                                if (castle["castle_name"] == Castle_Name){
-                                    if (castle["Early_agriculture"] < castle["Max_agriculture"]) {
-                                        add_agriculture = castle["Early_agriculture"].get<int>() + (res * 50);
-                                        if (add_agriculture >= castle["Max_agriculture"]) {
-                                            add_agriculture = castle["Max_agriculture"];
+                                for (auto& castle : CastleData) {
+                                    if (castle["castle_name"] == Castle_Name) {
+                                        if (castle["Early_agriculture"] < castle["Max_agriculture"]) {
+                                            add_agriculture = castle["Early_agriculture"].get<int>() + (res * 50);
+                                            if (add_agriculture >= castle["Max_agriculture"]) {
+                                                add_agriculture = castle["Max_agriculture"];
+                                            }
+                                            castle["Early_agriculture"] = add_agriculture;
                                         }
-                                        castle["Early_agriculture"] = add_agriculture;
                                     }
                                 }
+                                ofstream fileOut("../../ConfuseAge_KATSU/CastleData.json");
+                                if (!fileOut.is_open()) {
+                                    cerr << "파일 저장 실패!" << endl;
+                                }
+
+                                fileOut << CastleData.dump(4); //
+                                fileOut.close();
+                                HouseFile.close();
+                                GeneralFile.close();
+                                CastleFile.close();
+
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    Sleep(500);
+                                    cout << "=";
+                                }
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    Sleep(200);
+                                    cout << "=";
+                                }
+                                for (int j = 0; j < 10; j++) {
+                                    Sleep(50);
+                                    cout << "=";
+                                }
+                                cout << endl;
+                                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+                                cout << "농업 개발 완료!" << endl;
+                                cout << Castle_Name << "성의 현재 농업량 : " << add_agriculture << endl;
+                                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+                                Sleep(1000);
+                                Turn();
+                                Hatakeyama();
                             }
-                            ofstream fileOut("../../ConfuseAge_KATSU/CastleData.json");
-                            if (!fileOut.is_open()) {
-                                cerr << "파일 저장 실패!" << endl;
+                            else {
+                                Hatakeyama();
+                            }
                             }
                             
-                            fileOut << CastleData.dump(4); //
-                            fileOut.close();
-                            HouseFile.close();
-                            GeneralFile.close();
-                            CastleFile.close();
-
-                            for (int i = 0; i < 5; i++)
-                            {
-                                Sleep(500);
-                                cout << "=";
-                            }
-                            for (int i = 0; i < 5; i++)
-                            {
-                                Sleep(200);
-                                cout << "=";
-                            }
-                            for (int j = 0; j < 10; j++) {
-                                Sleep(50);
-                                cout << "=";
-                            }
-                            cout << endl;
-                            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
-                            cout << "농업 개발 완료!" << endl;
-                            cout << Castle_Name << "성의 현재 농업량 : "  << add_agriculture << endl;
-                            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-                            Sleep(1000);
-                            Turn();
-                            Hatakeyama();
-                        }
-                        else {
-                            Hatakeyama();
-                        }
                     }
                     system("cls");
                     int general_count = 0;
@@ -374,60 +381,65 @@ void commerce() {
                         cout << "예 -> Y , 아니오 -> N" << endl;
                         cin >> commerce_num;
 
-
-
+                        
                         if (commerce_num == 'Y' || commerce_num == 'y') {
-                            money -= 1000;
-                            cout << "상업 - 개발중" << endl;
+                            if ((money - 1000) < 0) {
+                                cout << "돈이 모자랍니다.." << endl;
+                                Hatakeyama();
+                            }
+                            else if ((money - 1000) > 0) {
+                                money -= 1000;
+                                cout << "상업 - 개발중" << endl;
 
-                            for (auto& castle : CastleData) {
-                                if (castle["castle_name"] == Castle_Name) {
-                                    if (castle["Early_commerce"] < castle["Max_commerce"]) {
-                                        add_commerce = castle["Early_commerce"].get<int>() + (res * 2);
-                                        if (add_commerce >= castle["Max_commerce"]) {
-                                            add_commerce = castle["Max_commerce"];
+                                for (auto& castle : CastleData) {
+                                    if (castle["castle_name"] == Castle_Name) {
+                                        if (castle["Early_commerce"] < castle["Max_commerce"]) {
+                                            add_commerce = castle["Early_commerce"].get<int>() + (res * 2);
+                                            if (add_commerce >= castle["Max_commerce"]) {
+                                                add_commerce = castle["Max_commerce"];
+                                            }
+                                            castle["Early_commerce"] = add_commerce;
                                         }
-                                        castle["Early_commerce"] = add_commerce;
                                     }
                                 }
-                            }
-                            ofstream fileOut("../../ConfuseAge_KATSU/CastleData.json");
-                            if (!fileOut.is_open()) {
-                                cerr << "파일 저장 실패!" << endl;
-                            }
+                                ofstream fileOut("../../ConfuseAge_KATSU/CastleData.json");
+                                if (!fileOut.is_open()) {
+                                    cerr << "파일 저장 실패!" << endl;
+                                }
 
-                            fileOut << CastleData.dump(4); //
-                            fileOut.close();
-                            HouseFile.close();
-                            GeneralFile.close();
-                            CastleFile.close();
+                                fileOut << CastleData.dump(4); //
+                                fileOut.close();
+                                HouseFile.close();
+                                GeneralFile.close();
+                                CastleFile.close();
 
-                            for (int i = 0; i < 5; i++)
-                            {
-                                Sleep(500);
-                                cout << "=";
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    Sleep(500);
+                                    cout << "=";
+                                }
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    Sleep(200);
+                                    cout << "=";
+                                }
+                                for (int j = 0; j < 10; j++) {
+                                    Sleep(50);
+                                    cout << "=";
+                                }
+                                cout << endl;
+                                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+                                cout << "상업 개발 완료!" << endl;
+                                cout << Castle_Name << "성의 현재 상업량 : " << add_commerce << endl;
+                                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+                                Sleep(1000);
+                                Turn();
+                                Hatakeyama();
                             }
-                            for (int i = 0; i < 5; i++)
-                            {
-                                Sleep(200);
-                                cout << "=";
+                            else {
+                                Hatakeyama();
                             }
-                            for (int j = 0; j < 10; j++) {
-                                Sleep(50);
-                                cout << "=";
-                            }
-                            cout << endl;
-                            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
-                            cout << "상업 개발 완료!" << endl;
-                            cout << Castle_Name << "성의 현재 상업량 : " << add_commerce << endl;
-                            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-                            Sleep(1000);
-                            Turn();
-                            Hatakeyama();
-                        }
-                        else {
-                            Hatakeyama();
-                        }
+                            }  
                     }
                     system("cls");
                     int general_count = 0;
@@ -604,51 +616,57 @@ void soldier() {
 
 
                         if (army_num == 'Y' || army_num == 'y') {
-                            money -= 1000;
-                            cout << "병력 - 모집중" << endl;
+                            if ((money - 1000) < 0) {
+                                cout << "돈이 모자랍니다.." << endl;
+                                Hatakeyama();
+                            }
+                            else if ((money - 1000) > 0) {
+                                money -= 1000;
+                                cout << "병력 - 모집중" << endl;
 
-                            for (auto& castle : CastleData) {
-                                if (castle["castle_name"] == Castle_Name) {
+                                for (auto& castle : CastleData) {
+                                    if (castle["castle_name"] == Castle_Name) {
                                         add_army = castle["army"].get<int>() + (res * 7);
                                         castle["army"] = add_army;
+                                    }
                                 }
-                            }
-                            ofstream fileOut("../../ConfuseAge_KATSU/CastleData.json");
-                            if (!fileOut.is_open()) {
-                                cerr << "파일 저장 실패!" << endl;
-                            }
+                                ofstream fileOut("../../ConfuseAge_KATSU/CastleData.json");
+                                if (!fileOut.is_open()) {
+                                    cerr << "파일 저장 실패!" << endl;
+                                }
 
-                            fileOut << CastleData.dump(4); //
-                            fileOut.close();
-                            HouseFile.close();
-                            GeneralFile.close();
-                            CastleFile.close();
+                                fileOut << CastleData.dump(4); //
+                                fileOut.close();
+                                HouseFile.close();
+                                GeneralFile.close();
+                                CastleFile.close();
 
-                            for (int i = 0; i < 5; i++)
-                            {
-                                Sleep(500);
-                                cout << "=";
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    Sleep(500);
+                                    cout << "=";
+                                }
+                                for (int i = 0; i < 5; i++)
+                                {
+                                    Sleep(200);
+                                    cout << "=";
+                                }
+                                for (int j = 0; j < 10; j++) {
+                                    Sleep(50);
+                                    cout << "=";
+                                }
+                                cout << endl;
+                                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+                                cout << "병력 모집 완료!" << endl;
+                                cout << Castle_Name << "성의 현재 병력 : " << add_army << endl;
+                                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+                                Sleep(1000);
+                                Turn();
+                                Hatakeyama();
                             }
-                            for (int i = 0; i < 5; i++)
-                            {
-                                Sleep(200);
-                                cout << "=";
+                            else {
+                                Hatakeyama();
                             }
-                            for (int j = 0; j < 10; j++) {
-                                Sleep(50);
-                                cout << "=";
-                            }
-                            cout << endl;
-                            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
-                            cout << "병력 모집 완료!" << endl;
-                            cout << Castle_Name << "성의 현재 병력 : " << add_army << endl;
-                            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-                            Sleep(1000);
-                            Turn();
-                            Hatakeyama();
-                        }
-                        else {
-                            Hatakeyama();
                         }
                     }
                     system("cls");
@@ -731,12 +749,16 @@ void Income() {
                 for (const auto& castle : entry["Castle_List"]) {
                     for (const auto& castleEntry : CastleData) {
                         if (castle == castleEntry["castle_name"]) {
-                            P_income += (castleEntry["Early_commerce"].get<int>() * (castleEntry["Early_agriculture"].get<int>() / 10000) - (castleEntry["army"].get<int>() / 10) );
+                            P_income += (castleEntry["Early_commerce"].get<int>() * (castleEntry["Early_agriculture"].get<int>() / 8000)) - (castleEntry["army"].get<int>() / 8);
                         }
                     }
                 }
             }
         }
+        if (money < 0) {
+            GameOver_Nomoney();
+        }
+
         cout << " 수입 : " << P_income << endl;
         cout << " 자금 : " << money << endl;
     }
