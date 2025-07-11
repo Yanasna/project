@@ -50,7 +50,7 @@ void ResetCastle() {
     for (auto& castle : CastleData) {
         if (castle["castle_name"] == "Karouji") {
             castle["Early_agriculture"] = 10000;
-            castle["Early_commerce"] = 1800;
+            castle["Early_commerce"] = 1000;
             castle["army"] =  4000;
             }
         if (castle["castle_name"] == "Karouka") {
