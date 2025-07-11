@@ -28,5 +28,59 @@
 		"General_Name" : "Ryutaki_Naotaka",
 		"Attack" : 31,
 		"resourceful" : 46
+	},
+	{
+		"id" : 6,
+		"General_Name" : "Ogigayatsu_Katsumasa",
+		"Attack" : 51,
+		"resourceful" : 33
+	},
+	{
+		"id" : 7,
+		"General_Name" :  "Ogigayatsu_Katsumune", 
+		"Attack" : 43,
+		"resourceful" : 45
+	},
+	{
+		"id" : 8,
+		"General_Name" : "takamune_Motochika", 
+		"Attack" : 11,
+		"resourceful" : 48
+	},
+	{
+		"id" : 9,
+		"General_Name" : "Hatakeyama_Michinobu", 
+		"Attack" : 58,
+		"resourceful" : 43
+	},
+	{
+		"id" : 10,
+		"General_Name" : "Kukotaka_Michikata", 
+		"Attack" : 51,
+		"resourceful" : 37
+	},
+	{
+		"id" : 11,
+		"General_Name" : "Watanabe_Watachika", 
+		"Attack" : 65,
+		"resourceful" : 23
+	},
+	{
+		"id" : 12,
+		"General_Name" : "Watanabe_Yositomo", 
+		"Attack" : 68,
+		"resourceful" : 30
+	},
+	{
+		"id" : 13,
+		"General_Name" : "takamune_Yosinari",
+		"Attack" : 8,
+		"resourceful" : 65
+	},
+	{
+		"id" : 14,
+		"General_Name" : "Kukotaka_Sizuka",
+		"Attack" : 26,
+		"resourceful" : 61
 	}
 ]
