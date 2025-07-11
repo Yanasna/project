@@ -7,7 +7,8 @@ using namespace std;
 
 void agriculture();
 void Income();
-void Time();
+void soldier();
+void Time();	
 void Story();
 
 
@@ -100,11 +101,13 @@ void Hatakeyama() {
 					system("cls");
 					cout << "우리는 상업에 투자한다!" << endl;
 					Sleep(1000);
+					commerce();
 					break;
 				case 2 : 
 					system("cls");
 					cout << "우리는 병영에 투자한다!" << endl;
 					Sleep(1000);
+					soldier();
 					break;
 				case 3:
 					system("cls");
