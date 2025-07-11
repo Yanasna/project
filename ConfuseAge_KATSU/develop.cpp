@@ -150,6 +150,7 @@ void agriculture() {
                         if (agriculture_num == 'Y' || agriculture_num == 'y') {
                             if ((money - 1000) < 0) {
                                 cout << "돈이 모자랍니다.." << endl;
+                                Sleep(2000);
                                 Hatakeyama();
                             }
                             else if ((money - 1000) > 0) {
@@ -385,6 +386,7 @@ void commerce() {
                         if (commerce_num == 'Y' || commerce_num == 'y') {
                             if ((money - 1000) < 0) {
                                 cout << "돈이 모자랍니다.." << endl;
+                                Sleep(2000);
                                 Hatakeyama();
                             }
                             else if ((money - 1000) > 0) {
@@ -618,6 +620,7 @@ void soldier() {
                         if (army_num == 'Y' || army_num == 'y') {
                             if ((money - 1000) < 0) {
                                 cout << "돈이 모자랍니다.." << endl;
+                                Sleep(2000);
                                 Hatakeyama();
                             }
                             else if ((money - 1000) > 0) {
@@ -749,7 +752,7 @@ void Income() {
                 for (const auto& castle : entry["Castle_List"]) {
                     for (const auto& castleEntry : CastleData) {
                         if (castle == castleEntry["castle_name"]) {
-                            P_income += (castleEntry["Early_commerce"].get<int>() * (castleEntry["Early_agriculture"].get<int>() / 8000)) - (castleEntry["army"].get<int>() / 8);
+                            P_income += (castleEntry["Early_commerce"].get<int>()  * (castleEntry["Early_agriculture"].get<int>() / 8000)) - (castleEntry["army"].get<int>() / 5);
                         }
                     }
                 }
