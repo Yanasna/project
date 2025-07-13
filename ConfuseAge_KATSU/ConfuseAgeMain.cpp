@@ -10,6 +10,7 @@ using namespace std;
 
 void gamefirst(bool& firstTime, string& p_name);
 void Hatakeyama();
+void Akamatsu();
 void ResetCastle();
 string nameSet();
 
@@ -82,6 +83,9 @@ void chooseCountry() {
 				running = false;
 				break;
 			case 1:
+				Akamatsu();
+				running = false;
+				break;
 			case 2:
 				cout << "제작중입니다! 다시 선택하세요!" << endl;
 				Sleep(1000);
